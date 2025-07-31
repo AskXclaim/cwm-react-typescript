@@ -2,6 +2,7 @@ import Message from "./components/Message";
 import ListGroup from "./components/ListGroup.tsx";
 import Alert from "./components/Alert.tsx";
 import {useState} from "react";
+import Button from "./components/Button.tsx";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
@@ -37,6 +38,7 @@ function App() {
             <Alert type={type}>
                 {alert}
             </Alert>
+            <Button type="primary" text="Welcome" />
         </div>
     )
 }
