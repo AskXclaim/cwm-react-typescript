@@ -1,11 +1,14 @@
 interface ButtonProps {
-    type: string;
-    text: string;
+    color?: "primary" | "success" | "warning" | "danger";
+    children: string;
+    onClick: () => void;
 }
 
-const Button = ({type, text}: ButtonProps) => {
+const Button = ({color = "primary", children, onClick}: ButtonProps) => {
     return (
-        <button type="button" className={`btn btn-${type} m-2 p-2`}>{text}</button>
+        <button type="button" className={`btn btn-${color} m-2 p-2`}
+                onClick={onClick}>
+            {children}</button>
     );
 }
 export default Button;

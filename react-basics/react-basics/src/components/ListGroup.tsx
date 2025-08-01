@@ -1,31 +1,32 @@
 import {useState} from "react";
+import {AlertColor} from "./Alerts";
 
 interface ListGroupProps {
     heading: string;
     items: string[];
-    onSelectItem: (item: string, type: string) => void;
+    onSelectItem: (item: string, alertColor: AlertColor) => void;
 }
 
 const ListGroup = ({heading, items, onSelectItem}: ListGroupProps) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
-    const getType = (index: number) => {
+    const getAlertColor = (index: number) => {
         switch (index) {
             case 0:
             case 1:
-                return "info"
+                return AlertColor.info
             case 2:
             case 3:
-                return "success"
+                return AlertColor.success
             case 4:
-                return "warning"
+                return AlertColor.warning
             default:
-                return "danger"
+                return AlertColor.danger
         }
     }
     const handleClick = (city: string, index: number) => {
         console.log(city);
         setSelectedIndex(index);
-        onSelectItem(city, getType(index));
+        onSelectItem(city, getAlertColor(index));
     }
     const setActive =
         (selectedIndex: number, index: number): "active" | "" =>

@@ -1,13 +1,14 @@
 import Message from "./components/Message";
 import ListGroup from "./components/ListGroup.tsx";
-import Alert from "./components/Alert.tsx";
+import {Alert} from "./components/Alerts";
+import {AlertColor} from "./components/Alerts";
 import {useState} from "react";
 import Button from "./components/Button.tsx";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
     const [alert, setAlert] = useState<null | string>(null);
-    const [type, setType] = useState<string>("");
+    const [alertColor, setAlertColor] = useState<null|AlertColor>(null);
     const getInformationAboutCity = (city: string): string => {
         switch (city?.trim().toLowerCase()) {
             case "london":
@@ -25,20 +26,24 @@ function App() {
                 return "Sorry could not find the selected city "
         }
     }
-    const handleSelectItem = (city: string, type: string) => {
+    const handleSelectItem = (city: string, alertColor: AlertColor) => {
         setAlert(getInformationAboutCity(city));
-        setType(type);
+        setAlertColor(alertColor);
     }
 
+    const handleAlertClose = () => {
+        setAlert(null);
+        setAlertColor(null);
+    }
     return (
         <div className="App">
             <Message/>
             <ListGroup heading="Cities" items={cities}
                        onSelectItem={handleSelectItem}/>
-            <Alert type={type}>
+            <Alert color={alertColor} onAlertCloseClick={handleAlertClose}>
                 {alert}
             </Alert>
-            <Button type="primary" text="Welcome" />
+            <Button color="primary" onClick={()=>console.info("Clicked")}>Welcome</Button>
         </div>
     )
 }
