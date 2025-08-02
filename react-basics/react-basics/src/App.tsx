@@ -1,9 +1,8 @@
 import Message from "./components/Message";
 import ListGroup from "./components/ListGroup.tsx";
-import {Alert} from "./components/Alerts";
-import {AlertColor} from "./components/Alerts";
+import {Alert, AlertColor} from "./components/Alerts";
 import {useState} from "react";
-import Button from "./components/Button.tsx";
+import {Button,ModuledButton} from "./components/Buttons";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
@@ -44,6 +43,9 @@ function App() {
                 {alert}
             </Alert>
             <Button color="primary" onClick={()=>console.info("Clicked")}>Welcome</Button>
+            <ModuledButton>
+                I'm a moduled styled button
+            </ModuledButton>
         </div>
     )
 }
