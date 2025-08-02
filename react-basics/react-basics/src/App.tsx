@@ -2,12 +2,13 @@ import Message from "./components/Message";
 import ListGroup from "./components/ListGroup.tsx";
 import {Alert, AlertColor} from "./components/Alerts";
 import {useState} from "react";
-import {Button,ModuledButton} from "./components/Buttons";
+import {Button, ModuledButton} from "./components/Buttons";
+import Like from "./components/Like.tsx";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
     const [alert, setAlert] = useState<null | string>(null);
-    const [alertColor, setAlertColor] = useState<null|AlertColor>(null);
+    const [alertColor, setAlertColor] = useState<null | AlertColor>(null);
     const getInformationAboutCity = (city: string): string => {
         switch (city?.trim().toLowerCase()) {
             case "london":
@@ -42,10 +43,14 @@ function App() {
             <Alert color={alertColor} onAlertCloseClick={handleAlertClose}>
                 {alert}
             </Alert>
-            <Button color="primary" onClick={()=>console.info("Clicked")}>Welcome</Button>
+            <Button color="primary" onClick={() => console.info("Clicked")}>Welcome</Button>
             <ModuledButton>
                 I'm a moduled styled button
             </ModuledButton>
+            <div>
+                <Like/>
+            </div>  
+
         </div>
     )
 }
