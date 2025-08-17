@@ -6,6 +6,7 @@ import {Button, ModuledButton} from "./components/Buttons";
 import Like from "./components/Like.tsx";
 import Game from "./components/GameExercise/Game.tsx";
 import ExpandableText from "./components/ExpandableText.tsx";
+import PizzaToppings from "./components/GameExercise/PizzaToppings.tsx";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
@@ -57,6 +58,9 @@ function App() {
 
             <div>
                 <Game/>
+            </div>
+            <div>
+                <PizzaToppings/>
             </div>
             <div>
                 <ExpandableText text={text} maxChars={0}/>
