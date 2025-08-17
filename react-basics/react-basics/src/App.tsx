@@ -4,6 +4,8 @@ import {Alert, AlertColor} from "./components/Alerts";
 import {useState} from "react";
 import {Button, ModuledButton} from "./components/Buttons";
 import Like from "./components/Like.tsx";
+import Game from "./components/GameExercise/Game.tsx";
+import ExpandableText from "./components/ExpandableText.tsx";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
@@ -35,6 +37,8 @@ function App() {
         setAlert(null);
         setAlertColor(null);
     }
+    const text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. " 
+        
     return (
         <div className="App">
             <Message/>
@@ -49,7 +53,14 @@ function App() {
             </ModuledButton>
             <div>
                 <Like/>
-            </div>  
+            </div>
+
+            <div>
+                <Game/>
+            </div>
+            <div>
+                <ExpandableText text={text} maxChars={0}/>
+            </div>
 
         </div>
     )
