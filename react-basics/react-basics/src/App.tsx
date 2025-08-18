@@ -1,3 +1,4 @@
+import "./App.css"
 import Message from "./components/Message";
 import ListGroup from "./components/ListGroup.tsx";
 import {Alert, AlertColor} from "./components/Alerts";

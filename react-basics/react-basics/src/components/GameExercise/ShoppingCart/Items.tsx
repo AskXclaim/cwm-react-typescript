@@ -1,6 +1,11 @@
 import {Item} from "./index.ts";
 
-const Items = () => {
+type ItemsProps = {
+    items: { id: number, title: string, quantity: number }[];
+    onQuantityChange: (value: { itemId: number, sign: string }) => void;
+    onTextChange: (value: { itemId: number, quantity: number }) => void;
+}
+const Items = ({items, onQuantityChange, onTextChange}: ItemsProps) => {
     return (<div className="row">
         <div className="col-12">
             <table className="table">
@@ -12,8 +17,10 @@ const Items = () => {
                 </tr>
                 </thead>
                 <tbody>
-                <Item/>
-                <Item/>
+                {items.map(item => (
+                    <Item item={item} key={item.id} onQuantityChange={onQuantityChange}
+                          onTextChange={onTextChange}/>
+                ))}
                 </tbody>
             </table>
         </div>
