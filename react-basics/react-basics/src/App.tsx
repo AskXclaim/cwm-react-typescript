@@ -7,6 +7,7 @@ import Like from "./components/Like.tsx";
 import Game from "./components/GameExercise/Game.tsx";
 import ExpandableText from "./components/ExpandableText.tsx";
 import PizzaToppings from "./components/GameExercise/PizzaToppings.tsx";
+import {Cart} from "./components/GameExercise/ShoppingCart";
 
 function App() {
     const cities = ["London", "Leeds", "New york", "Lagos", "New Delhi"];
@@ -64,6 +65,10 @@ function App() {
             </div>
             <div>
                 <ExpandableText text={text} maxChars={0}/>
+            </div>
+            
+            <div>
+                <Cart/>
             </div>
 
         </div>
