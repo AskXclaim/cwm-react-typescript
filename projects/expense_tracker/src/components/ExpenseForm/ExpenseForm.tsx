@@ -1,20 +1,22 @@
 import "./ExpenseForm.css"
-import {ExpenseFormSection} from "./index.ts";
+import {ExpenseFormSchema, ExpenseFormInputGroup, ExpenseFormSelectGroup, CategoryEnum} from "./";
 // import type {FormEvent} from "react";
 import {useForm, type SubmitHandler, type FieldValues} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
-const ExpenseFormSchema = z.object({
-    description: z.string().min(5,
-        {message: "Description must be at least 5 characters"})
-        .max(50, {message: "Description cannot be more than 50 characters"}),
-    amount: z.number({message:"Amount is required"}).min(0.1, {message: "Amount cannot be less than 0.1"})
-        .max(10_000, {message: "Amount cannot be more than 10,000"}),
-    category: z.string().min(5).max(20),
-})
-
 type ExpenseFormData = z.infer<typeof ExpenseFormSchema>;
+const getSelectData = () => {
+    const selectData: {
+        value: string;
+        text: "Please choose a category" | "Category" | "Utilities" | "Entertainment";
+    }[] = [];
+    selectData.push({value: "", text: "Please choose a category"});
+    Object.entries(CategoryEnum).forEach(([key, value]) => {
+        selectData.push({value: key, text: value});
+    });
+    return selectData;
+}
 
 const ExpenseForm = () => {
     // const handleFormSubmit = (event: FormEvent) => {
@@ -32,15 +34,14 @@ const ExpenseForm = () => {
     return (
         <form onSubmit={handleSubmit(handleReactFormFormSubmit)}>
             <div className="min-width-400px d-flex flex-column align-items-start m-1">
-                <ExpenseFormSection labelDescription="Description" inputId="description"
-                                    placeholder="Description..." inputType="text" register={register}
-                                    errors={errors}/>
-                <ExpenseFormSection labelDescription="Amount" inputId="amount"
-                                    placeholder="amount..." inputType="number" register={register}
-                                    errors={errors}/>
-                <ExpenseFormSection labelDescription="category" inputId="category"
-                                    placeholder="categories..." inputType="text" register={register}
-                                    errors={errors}/>
+                <ExpenseFormInputGroup labelDescription="Description" inputId="description"
+                                       placeholder="Description..." inputType="text" register={register}
+                                       errors={errors}/>
+                <ExpenseFormInputGroup labelDescription="Amount" inputId="amount"
+                                       placeholder="amount..." inputType="number" register={register}
+                                       errors={errors}/>
+                <ExpenseFormSelectGroup labelDescription="Category" selectId="category" options={getSelectData()}
+                                        register={register} errors={errors}/>
 
                 <button className="btn btn-lg btn-outline-primary  m-1 mt-3">Add</button>
             </div>

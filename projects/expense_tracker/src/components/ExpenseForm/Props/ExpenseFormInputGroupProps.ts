@@ -1,4 +1,4 @@
-export type ExpenseFormSectionProps = {
+export type ExpenseFormInputGroupProps = {
     labelDescription: string,
     inputId: string,
     placeholder: string,

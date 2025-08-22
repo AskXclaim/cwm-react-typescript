@@ -1,9 +1,8 @@
-import {type ExpenseFormSectionProps} from "./index.ts"
+import {type ExpenseFormInputGroupProps} from "./"
 import type {JSX} from "react";
 
-const ExpenseFormSection =
-    ({labelDescription, inputId, placeholder, inputType, register, errors}: ExpenseFormSectionProps) => {
-
+const ExpenseFormInputGroup =
+    ({labelDescription, inputId, placeholder, inputType, register, errors}: ExpenseFormInputGroupProps) => {
         let Input:JSX.Element;
 
         if (inputType === "text") {
@@ -15,11 +14,11 @@ const ExpenseFormSection =
         }
 
         return (
-            <div className="d-flex flex-column align-items-start w-100">
+            <div className="d-flex flex-column align-items-start w-100 mt-2 mb-2">
                 <label htmlFor={inputId} className="m-1 ps-1">{labelDescription}</label>
                 {Input}
                 {errors[inputId] && (<span className="text-danger text-start ps-1">{errors[inputId].message}</span>)}
             </div>
         );
     }
-export default ExpenseFormSection;
+    export default ExpenseFormInputGroup;
