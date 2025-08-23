@@ -1,28 +1,20 @@
 import "./ExpenseForm.css"
-import {ExpenseFormSchema, ExpenseFormInputGroup, ExpenseFormSelectGroup, CategoryEnum} from "./";
-// import type {FormEvent} from "react";
+import {
+    ExpenseFormSchema,
+    ExpenseFormInputGroup,
+    ExpenseFormSelectGroup,
+    getCategoriesAsObjectArray
+} from "./";
 import {useForm, type SubmitHandler, type FieldValues} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
 type ExpenseFormData = z.infer<typeof ExpenseFormSchema>;
-const getSelectData = () => {
-    const selectData: {
-        value: string;
-        text: "Please choose a category" | "Category" | "Utilities" | "Entertainment";
-    }[] = [];
-    selectData.push({value: "", text: "Please choose a category"});
-    Object.entries(CategoryEnum).forEach(([key, value]) => {
-        selectData.push({value: key, text: value});
-    });
-    return selectData;
-}
+const getSelectData = () =>
+    [{value: "", text: "Please choose a category"}, ...getCategoriesAsObjectArray()]
+
 
 const ExpenseForm = () => {
-    // const handleFormSubmit = (event: FormEvent) => {
-    //     event.preventDefault();
-    //     console.log(event);
-    // }
     const handleReactFormFormSubmit: SubmitHandler<ExpenseFormData> = (data: FieldValues) => {
         console.log(data);
     }
