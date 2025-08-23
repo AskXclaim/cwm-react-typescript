@@ -1,7 +1,6 @@
 import {z} from 'zod';
 import {CategoryEnum} from './';
 
-
 const ExpenseFormSchema = z.object({
     description: z.string().min(5,
         {message: "Description must be at least 5 characters"})
