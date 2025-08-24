@@ -1,19 +1,17 @@
-import './App.css'
-import {ExpenseForm} from "./components/ExpenseForm";
 import {Header} from "./components";
-import {ExpenseList} from "./components/ExpenseList";
+import {ExpenseForm} from "./components/ExpenseForm";
+import {ExpenseList, expenseListDummyData} from "./components/ExpenseList";
 
-
-function App() {
+const ExpenseApp = () => {
     return (
         <div className="container">
             <Header text={"Expense Tracker"}/>
             <div className="m-4">
                 <ExpenseForm/>
-                <ExpenseList/>
+                <ExpenseList items={expenseListDummyData}/>
             </div>
         </div>
     )
 }
 
-export default App
+export default ExpenseApp

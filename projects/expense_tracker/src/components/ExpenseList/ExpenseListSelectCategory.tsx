@@ -2,7 +2,7 @@ import type {ExpenseListCategoryProps} from "./";
 
 const ExpenseListSelectCategory = ({id, options}: ExpenseListCategoryProps) => {
     return (
-        <div className="d-flex justify-content-start mb-2 w-50">
+        <div className="d-flex justify-content-start mb-2 w-75">
             <select className="form-select" id={id}>
                 {
                     options.map(option => {
