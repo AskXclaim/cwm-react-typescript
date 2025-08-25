@@ -1,3 +1,5 @@
+import type {ExpenseFormDataType} from "../";
+
 export type ExpenseFormProps={
-    onAddExpense:(data:ExpenseFormProps)=>void,
+    onAddExpense:(data:ExpenseFormDataType)=>void,
 }

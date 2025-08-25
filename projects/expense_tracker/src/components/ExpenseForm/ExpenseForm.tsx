@@ -1,11 +1,10 @@
-import "./ExpenseForm.css"
 import {
     ExpenseFormSchema,
     ExpenseFormInputGroup,
     ExpenseFormSelectGroup,
     getCategoriesAsObjectArray, type ExpenseFormDataType, type ExpenseFormProps
 } from "./";
-import {useForm, type SubmitHandler, type FieldValues} from "react-hook-form";
+import {useForm, type SubmitHandler} from "react-hook-form";
 
 import {zodResolver} from "@hookform/resolvers/zod";
 
@@ -13,7 +12,7 @@ const getSelectData = () =>
     [{value: "", text: "Please choose a category"}, ...getCategoriesAsObjectArray()]
 
 const ExpenseForm = ({onAddExpense}:ExpenseFormProps) => {
-    const handleAddExpense: SubmitHandler<ExpenseFormDataType> = (data: FieldValues) => {
+    const handleAddExpense: SubmitHandler<ExpenseFormDataType> = (data: ExpenseFormDataType) => {
        onAddExpense(data);
     }
     const {
@@ -23,7 +22,7 @@ const ExpenseForm = ({onAddExpense}:ExpenseFormProps) => {
     } = useForm<ExpenseFormDataType>({resolver: zodResolver(ExpenseFormSchema)});
     return (
         <form onSubmit={handleSubmit(handleAddExpense)}>
-            <div className="min-width-400px d-flex flex-column align-items-start m-1">
+            <div className="d-flex flex-column align-items-start m-1">
                 <ExpenseFormInputGroup labelDescription="Description" inputId="description"
                                        placeholder="Description..." inputType="text" register={register}
                                        errors={errors}/>

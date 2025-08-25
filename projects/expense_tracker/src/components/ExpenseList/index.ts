@@ -5,6 +5,11 @@ import type {ExpenseListCategoryProps} from "./Props/ExpenseListCategoryProps.ts
 import type {ExpenseListProps} from "./Props/ExpenseListProps.ts";
 import ExpenseListSelectCategory from "./ExpenseListSelectCategory.tsx";
 import ExpenseItem from "./ExpenseItem.tsx";
+import ExpenseTotal from "./ExpenseTotal.tsx";
 import ExpenseList from "./ExpenseList";
-export {expenseListDummyData,Categories,getCategoriesAsObjectArray,ExpenseListSelectCategory,ExpenseItem,ExpenseList}
+
+export {
+    expenseListDummyData, Categories, getCategoriesAsObjectArray,
+    ExpenseListSelectCategory, ExpenseItem, ExpenseTotal, ExpenseList
+}
 export type {ExpenseItemProps, ExpenseListCategoryProps, ExpenseListProps}

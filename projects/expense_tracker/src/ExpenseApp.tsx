@@ -1,3 +1,4 @@
+import "./ExpenseApp.css";
 import {Header} from "./components";
 import {type ExpenseListDataType} from "./";
 import {ExpenseForm, type ExpenseFormDataType} from "./components/ExpenseForm";
@@ -20,7 +21,7 @@ const ExpenseApp = () => {
         setExpenseList(expenseList.filter(item => item.id !== expenseId));
     }
     return (
-        <div className="container">
+        <div className="container max-width-500px min-width-300px">
             <Header text={"Expense Tracker"}/>
             <div className="m-4">
                 <ExpenseForm onAddExpense={handleAddExpense}/>
