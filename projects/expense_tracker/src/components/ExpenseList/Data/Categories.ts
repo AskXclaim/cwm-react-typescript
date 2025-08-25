@@ -7,8 +7,8 @@ export const Categories = {
 
 export const getCategoriesAsObjectArray = () => {
     const objectArray: { value: string, text: string }[] = [];
-    Object.entries(Categories).forEach(([key, value]) => {
-        objectArray.push({value: key, text: value})
+    Object.entries(Categories).forEach(([, value]) => {
+        objectArray.push({value: value, text: value})
     });
     return objectArray;
 }

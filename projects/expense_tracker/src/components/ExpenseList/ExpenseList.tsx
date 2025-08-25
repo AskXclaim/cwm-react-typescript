@@ -6,16 +6,18 @@ import {
     ExpenseTotal
 } from "./index.ts";
 
-const ExpenseList = ({items, onDeleteExpense}: ExpenseListProps) => {
-
+const ExpenseList = ({items, onDeleteExpense, onCategoryChange}: ExpenseListProps) => {
     const getTotal = () => {
         return items.reduce((acc, {amount}) => {
             return acc + amount;
         }, 0);
     }
 
+  
+
     return (<div className="d-flex flex-column align-items-start m-2 mt-4">
-        <ExpenseListSelectCategory id="expenseListCategories" options={getCategoriesAsObjectArray()}/>
+        <ExpenseListSelectCategory id="expenseListCategories" options={getCategoriesAsObjectArray()}
+                                   onSelection={onCategoryChange}/>
         <table className="table table-bordered">
             <thead>
             <tr>
@@ -26,7 +28,7 @@ const ExpenseList = ({items, onDeleteExpense}: ExpenseListProps) => {
             </tr>
             </thead>
             <tbody>
-            {items.map((item) => {
+            {items?.map((item) => {
                 return (<ExpenseItem key={item.id} id={item.id} description={item.description}
                                      currencySymbol={item.currencySymbol} amount={item.amount}
                                      category={item.category} onDeleteExpense={onDeleteExpense}/>);
