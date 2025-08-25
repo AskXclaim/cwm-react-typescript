@@ -4,5 +4,5 @@ export type ExpenseItemProps = {
     amount: number,
     category: string,
     currencySymbol: string,
-    onDeleteExpense: (expenseId: number) => void
+    onDeleteExpense: (expenseId: string) => void
 }

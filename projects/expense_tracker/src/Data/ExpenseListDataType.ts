@@ -1,3 +1,2 @@
-export type ExpenseListDataType = {
-    items: {  id:string, description: string, currencySymbol: string, amount: number, category: string }[];
-}
+export type ExpenseListDataType = 
+    {  id:string, description: string, currencySymbol: string, amount: number, category: string }[];

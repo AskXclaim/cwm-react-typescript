@@ -11,15 +11,16 @@ const getId = () => {
     return uid.rnd();
 }
 const ExpenseApp = () => {
-    const [expenseList, setExpenseList] = useState<ExpenseListDataType[]>([]);
+    const [expenseList, setExpenseList] = useState<ExpenseListDataType>([]);
     const handleAddExpense = (data: ExpenseFormDataType) => {
         console.log(data);
         setExpenseList([...expenseList, {...data, id: getId(), currencySymbol: "£"}]);
         console.log(expenseList);
     }
-    const handleDeleteExpense = (expenseId: number) => {
+    const handleDeleteExpense = (expenseId: string) => {
         setExpenseList(expenseList.filter(item => item.id !== expenseId));
     }
+    
     return (
         <div className="container max-width-500px min-width-300px">
             <Header text={"Expense Tracker"}/>
