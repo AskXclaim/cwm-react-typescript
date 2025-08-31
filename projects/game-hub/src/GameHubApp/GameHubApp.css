@@ -1,0 +1,14 @@
+.dark-theme{
+    color: white;
+}
+.dark-theme::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+.light-theme{
+    color: #100f0f;
+}
+.light-theme::placeholder{
+    color: #615f5f;
+    opacity: 0.7;  
+}

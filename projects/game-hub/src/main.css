@@ -1,0 +1,6 @@
+#root{
+    height: 100vh;
+    min-width: 500px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}

@@ -1,9 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import GameHubApp from './GameHubApp.tsx'
+import "./main.css";
+import { Provider } from "@/components/ui/provider"
+import GameHubApp from './GameHubApp/GameHubApp.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <GameHubApp />
-  </StrictMode>,
+    <Provider>
+        <StrictMode>
+            <GameHubApp />
+        </StrictMode>,   
+    </Provider>
 )
