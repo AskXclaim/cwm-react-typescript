@@ -3,13 +3,14 @@ import {GameHubImage} from "@/components";
 
 export type MenuItemProps = {
     text: string;
+    src: string;
+    srcSet: string;
 }
 
-const MenuItem = ({text}: MenuItemProps) => {
+const MenuItem = ({text, src, srcSet}: MenuItemProps) => {
     return (
         <Flex direction={"row"} align={"center"} gap={2} cursor={"pointer"}>
-            <GameHubImage alternativeText={text} src={"./src/assets/game-hub-logo.png"} 
-                          srcSet={"./src/assets/game-hub-logo.webp"}/>
+            <GameHubImage alternativeText={text} src={src} srcSet={srcSet}/>
             <Text textStyle="md">{text}</Text>
         </Flex>
     );
