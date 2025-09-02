@@ -1,4 +1,4 @@
-import {Container, HStack, Input, InputGroup} from "@chakra-ui/react";
+import { HStack, Input, InputGroup} from "@chakra-ui/react";
 import {LuSearch} from "react-icons/lu";
 import {GameHubImage, ThemeToggler} from "./";
 import type {ThemeTogglerProps} from "@/components/ThemeToggler.tsx";
@@ -9,8 +9,7 @@ type NavigationBarProps =ThemeTogglerProps &  {
 
 const NavigationBar = ({text,isChecked,onCheckedChange, themeClassStyle}:NavigationBarProps) => {
     return (
-        <Container fluid padding={1} width="100%" marginBottom={10}>
-            <HStack>
+            <HStack justifyContent="space-between" padding="10px">
                 <GameHubImage alternativeText={"logo"} src={"./src/assets/game-hub-logo.png"} 
                               srcSet={"./src/assets/game-hub-logo.webp"}/>
                 <InputGroup flex="1" startElement={<LuSearch className={themeClassStyle}/>}>
@@ -19,7 +18,7 @@ const NavigationBar = ({text,isChecked,onCheckedChange, themeClassStyle}:Navigat
                 <ThemeToggler isChecked={isChecked} 
                               text={text} onCheckedChange={onCheckedChange}/>
             </HStack>
-        </Container>
+ 
     )
 }
 

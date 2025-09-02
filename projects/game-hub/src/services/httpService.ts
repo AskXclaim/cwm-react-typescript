@@ -1,14 +1,14 @@
-import ApiClient, {KEY} from "@/services/apiClient.ts";
+import ApiClient from "@/services/apiClient.ts";
 
 class HttpService {
     endpoint: string;
 
-    constructor(endpoint: string, orderBy: string | null = null, pageNumber: number | null) {
+    constructor(endpoint: string, orderBy: string | null = null, pageNumber: number | null=null) {
         this.endpoint = `${this.getFullEndpoint(endpoint, orderBy, pageNumber)}`;
     }
 
     private getFullEndpoint(endpoint: string, orderBy: string | null, pageNumber: number | null): string {
-        let fullEndpoint = `${endpoint}?key=${KEY}${orderBy === null ? "" : "&ordering=" + orderBy}`;
+        let fullEndpoint = `${endpoint}${orderBy === null ? "" : "&ordering=" + orderBy}`;
         fullEndpoint += `${pageNumber !== null ? "&page=" + pageNumber : ""}`;
         return fullEndpoint;
     }

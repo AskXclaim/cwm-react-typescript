@@ -1,5 +1,5 @@
 import "./GameHubApp.css";
-import {Container, Flex} from "@chakra-ui/react";
+import {Grid, GridItem, Show, useBreakpointValue} from "@chakra-ui/react";
 import {MainSection, Menu, NavigationBar} from "@/components";
 import {useEffect, useState} from "react";
 import {DarkTheme, LightTheme, type Theme} from "@/gameHubApp/index.ts";
@@ -46,20 +46,30 @@ const GameHubApp = () => {
         isChecked: theme.name === "Dark Theme",
         themeText: theme.name,
     };
+    const shouldShowAside = useBreakpointValue({
+        base: false,
+        lg: true
+    })
 
     return (
-        <Container fluid padding={0} height="100%"
-                   backgroundColor={theme.backgroundColor} color={theme.fontColor}>
-            <NavigationBar text={themeTogglerValues.themeText} isChecked={themeTogglerValues.isChecked}
-                           onCheckedChange={handleThemeChange} themeClassStyle={theme.themeStyleClass}/>
+        <Grid templateAreas={{
+            base: `"nav" "main"`,
+            lg: `"nav nav" "aside main"`
+        }} backgroundColor={theme.backgroundColor} color={theme.fontColor}>
+            <GridItem area="nav">
+                <NavigationBar text={themeTogglerValues.themeText} isChecked={themeTogglerValues.isChecked}
+                               onCheckedChange={handleThemeChange} themeClassStyle={theme.themeStyleClass}/>
+            </GridItem>
+            <Show when={shouldShowAside}>
+                <GridItem area="aside" width={"18%"}  padding="10px">
+                    <Menu name="Genres" genres={genres}/>
+                </GridItem>
+            </Show>
 
-            <Flex direction={"row"}>
-                <Menu name="Genres" genres={genres}/>
-
+            <GridItem area="main">
                 <MainSection platformOptions={platForms} orderByOptions={orderBys}/>
-            </Flex>
-
-        </Container>
+            </GridItem>
+        </Grid>
     );
 }
 

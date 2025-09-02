@@ -8,7 +8,7 @@ type MenuProps = {
 }
 const Menu = ({name, genres}: MenuProps) => {
     return (
-        <VStack width={"18%"} align={"flex-start"} paddingLeft={1}>
+        <VStack align={"flex-start"}>
             <Heading size="2xl">{name}</Heading>
             {genres.map((genre) => (
                 <MenuItem key={genre.id} text={genre.name} src={genre.image_background}

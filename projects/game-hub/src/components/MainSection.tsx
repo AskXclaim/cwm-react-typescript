@@ -1,5 +1,5 @@
-import {Flex, Heading} from "@chakra-ui/react";
-import {GameHubSelect} from "@/components/index.ts";
+import {Heading, HStack, VStack} from "@chakra-ui/react";
+import {GameGrid, GameHubSelect} from "@/components/index.ts";
 import type {ValueText} from "@/Types-Interfaces/ValueText.ts";
 
 type MainSectionProps = {
@@ -9,13 +9,14 @@ type MainSectionProps = {
 }
 const MainSection = ({platformOptions, orderByOptions}: MainSectionProps) => {
     return (
-        <Flex direction="column" grow={1} pl={2}>
+        <VStack align="flex-start">
             <Heading size="3xl">Games</Heading>
-            <Flex direction="row">
+            <HStack>
                 <GameHubSelect options={platformOptions}/>
                 <GameHubSelect options={orderByOptions}/>
-            </Flex>
-        </Flex>
+            </HStack>
+            <GameGrid/>
+        </VStack>
     );
 }
 export default MainSection;

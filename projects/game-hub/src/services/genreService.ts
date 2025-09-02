@@ -6,5 +6,5 @@ export type Genre={
     image_background: string,
 }
 
- const createGenreHttpService = createHttpService("/genres", "name");
+ const createGenreHttpService = createHttpService("/genres");
  export default createGenreHttpService;
