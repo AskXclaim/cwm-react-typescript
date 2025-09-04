@@ -2,9 +2,16 @@ import {useEffect, useState} from "react";
 import { CanceledError} from "axios";
 import apiClient from "@/services/apiClient.ts";
 
+export type Platform={
+    id:number,
+    name: string,
+    slug: string,
+}
 export type Game = {
     id: number,
     name: string,
+    background_image: string,
+    parent_platform:{platform:Platform}[],
 }
 
 export type GamesResponse = {

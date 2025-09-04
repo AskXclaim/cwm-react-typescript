@@ -1,17 +1,10 @@
 import "./GameHubApp.css";
 import {Grid, GridItem, Show, useBreakpointValue} from "@chakra-ui/react";
-import {MainSection, Menu, NavigationBar} from "@/components";
+import {GameGrid, Menu, NavigationBar} from "@/components";
 import {useEffect, useState} from "react";
 import {DarkTheme, LightTheme, type Theme} from "@/gameHubApp/index.ts";
-import type {ValueText} from "@/Types-Interfaces/ValueText.ts";
 import genreService, {type Genre} from "@/services/genreService.ts";
 import {CanceledError, type Response} from "@/services/apiClient.ts";
-
-const platForms: ValueText[] = [{value: "Xbox", text: "Xbox"},
-    {value: "Nintendo", text: "Nintendo"}, {value: "Play Station", text: "Play Station"}];
-const orderByText = "Order by ";
-const orderBys: ValueText[] = [{value: "Relevance", text: `${orderByText} Relevance`},
-    {value: "Genre", text: `${orderByText} Genre`}, {value: "Release Date", text: `${orderByText} Release Date`}];
 
 const GameHubApp = () => {
 
@@ -61,13 +54,13 @@ const GameHubApp = () => {
                                onCheckedChange={handleThemeChange} themeClassStyle={theme.themeStyleClass}/>
             </GridItem>
             <Show when={shouldShowAside}>
-                <GridItem area="aside" width={"18%"}  padding="10px">
+                <GridItem area="aside" padding="10px">
                     <Menu name="Genres" genres={genres}/>
                 </GridItem>
             </Show>
 
             <GridItem area="main">
-                <MainSection platformOptions={platForms} orderByOptions={orderBys}/>
+                <GameGrid/>
             </GridItem>
         </Grid>
     );
