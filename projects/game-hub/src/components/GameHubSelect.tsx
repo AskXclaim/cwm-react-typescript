@@ -1,5 +1,5 @@
 import {NativeSelect} from "@chakra-ui/react";
-import type {ValueText} from "@/Types-Interfaces/ValueText.ts";
+import type {ValueText} from "@/types-interfaces/ValueText.ts";
 
 export type GameHubSelectProps = {
     options: ValueText[]

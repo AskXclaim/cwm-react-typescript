@@ -11,10 +11,10 @@ const MainSection = ({platformOptions, orderByOptions}: MainSectionProps) => {
     return (
         <VStack align="flex-start">
             <Heading size="3xl">Games</Heading>
-            <HStack>
-                <GameHubSelect options={platformOptions}/>
-                <GameHubSelect options={orderByOptions}/>
-            </HStack>
+            {/*<HStack>*/}
+            {/*    <GameHubSelect options={platformOptions}/>*/}
+            {/*    <GameHubSelect options={orderByOptions}/>*/}
+            {/*</HStack>*/}
             <GameGrid/>
         </VStack>
     );
