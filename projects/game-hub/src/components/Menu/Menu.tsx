@@ -1,18 +1,16 @@
-import {Heading, VStack} from "@chakra-ui/react";
+import {Heading, VStack, Text} from "@chakra-ui/react";
 import {MenuItem} from "@/components";
-import type {Genre} from "@/services/genreService.ts";
+import useGenres from "@/hooks/useGenres.ts";
 
-type MenuProps = {
-    name: string;
-    genres: Genre[];
-}
-const Menu = ({name, genres}: MenuProps) => {
+
+const Menu = () => {
+    const {genres, error} = useGenres();
     return (
         <VStack align={"flex-start"}>
-            <Heading size="2xl">{name}</Heading>
-            {genres.map((genre) => (
-                <MenuItem key={genre.id} text={genre.name} src={genre.image_background}
-                          srcSet={genre.image_background}/>
+            {error && <Text>{error}</Text>}
+            <Heading size="2xl">Genres</Heading>
+            {genres?.map((genre) => (
+                <MenuItem key={genre.id} genre={genre}/>
             ))}
         </VStack>
     );

@@ -8,7 +8,7 @@ const GameCard = ({game}:GameCardProps) => {
     return (
         <Card.Root borderRadius={"10px"} overflow={"hidden"}>
             <Image src={game.background_image} alt={game.name}/>
-            <Card.Title fontSize={"2xl"}>{game.name}</Card.Title>
+            <Card.Title fontSize={"2xl"} padding={"2"}>{game.name}</Card.Title>
             <Card.Body></Card.Body>
             <Card.Footer></Card.Footer>
         </Card.Root>

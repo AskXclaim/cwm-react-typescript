@@ -9,7 +9,7 @@ export default axios.create({
 
 export {CanceledError} ;
 
-export type Response<T>={
+export type FetchResponse<T>={
     count:number,
     next:string|null,
     previous:number|null,

@@ -1,18 +1,18 @@
-import {Flex, Text} from "@chakra-ui/react";
+import { HStack, Text} from "@chakra-ui/react";
 import {GameHubImage} from "@/components";
+import type {Genre} from "@/hooks/useGenres.ts";
 
 export type MenuItemProps = {
-    text: string;
-    src: string;
-    srcSet: string;
+    genre: Genre;
 }
 
-const MenuItem = ({text, src, srcSet}: MenuItemProps) => {
+const MenuItem = ({genre}: MenuItemProps) => {
     return (
-        <Flex direction={"row"} align={"center"} gap={2} cursor={"pointer"}>
-            <GameHubImage alternativeText={text} src={src} srcSet={srcSet}/>
-            <Text textStyle="md">{text}</Text>
-        </Flex>
+        <HStack align={"center"} gap={2} cursor={"pointer"}>
+            <GameHubImage alternativeText={genre.name}
+                          src={genre.image_background} srcSet={genre.image_background}/>
+            <Text textStyle="md">{genre.name}</Text>
+        </HStack>
     );
 }
 export default MenuItem;
