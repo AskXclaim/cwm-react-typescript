@@ -1,15 +1,19 @@
-import {Card, Image} from "@chakra-ui/react";
+import {Card, Heading, Image} from "@chakra-ui/react";
 import type {Game} from "@/hooks/useGames.ts";
+import PlatformIconList from "@/components/PlatformIconList.tsx";
 
 type GameCardProps = {
     game: Game;
 }
-const GameCard = ({game}:GameCardProps) => {
+const GameCard = ({game}: GameCardProps) => {
     return (
         <Card.Root borderRadius={"10px"} overflow={"hidden"}>
             <Image src={game.background_image} alt={game.name}/>
-            <Card.Title fontSize={"2xl"} padding={"2"}>{game.name}</Card.Title>
-            <Card.Body></Card.Body>
+            <Card.Body padding={1}>
+                <Heading fontSize={"2xl"}>{game.name}</Heading>
+                {<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)}/>}
+            </Card.Body>
+           
             <Card.Footer></Card.Footer>
         </Card.Root>
     );

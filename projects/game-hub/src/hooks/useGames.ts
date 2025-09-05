@@ -11,7 +11,7 @@ export type Game = {
     id: number,
     name: string,
     background_image: string,
-    parent_platform:{platform:Platform}[],
+    parent_platforms:{platform:Platform}[],
 }
 
 export type GamesResponse = {
