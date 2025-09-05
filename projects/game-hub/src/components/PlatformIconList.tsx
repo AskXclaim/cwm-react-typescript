@@ -7,7 +7,7 @@ import {BsGlobe} from "react-icons/bs"
 import type {IconType} from "react-icons";
 
 type PlatformIconListProps = {
-    platforms: Platform[]
+    platforms: Platform[],
 }
 
 const iconMap: { [key: string]: IconType } = {
@@ -21,6 +21,7 @@ const iconMap: { [key: string]: IconType } = {
     ios: MdPhoneIphone,
     web: BsGlobe,
 }
+
 const PlatformIconList = ({platforms}: PlatformIconListProps) => {
     return (
         <HStack marginY={1}>

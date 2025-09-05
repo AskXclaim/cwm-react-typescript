@@ -3,7 +3,7 @@ import type {Game} from "@/hooks/useGames.ts";
 import PlatformIconList from "@/components/PlatformIconList.tsx";
 
 type GameCardProps = {
-    game: Game;
+    game: Game,
 }
 const GameCard = ({game}: GameCardProps) => {
     return (
@@ -13,7 +13,7 @@ const GameCard = ({game}: GameCardProps) => {
                 <Heading fontSize={"2xl"}>{game.name}</Heading>
                 {<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)}/>}
             </Card.Body>
-           
+
             <Card.Footer></Card.Footer>
         </Card.Root>
     );
