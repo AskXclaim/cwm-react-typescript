@@ -24,21 +24,27 @@ const GameHubApp = () => {
     })
 
     return (
-        <Grid templateAreas={{
-            base: `"nav" "main"`,
-            lg: `"nav nav" "aside main"`
-        }} backgroundColor={theme.backgroundColor} color={theme.fontColor}>
+        <Grid
+            templateAreas={{
+                base: `"nav" "main"`,
+                lg: `"nav nav" "aside main"`
+            }}
+            templateColumns={{
+                base: "1fr",
+                lg: "200px 1fr",
+            }}
+            backgroundColor={theme.backgroundColor} color={theme.fontColor}>
             <GridItem area="nav">
                 <NavigationBar text={themeTogglerValues.themeText} isChecked={themeTogglerValues.isChecked}
                                onCheckedChange={handleThemeChange} themeClassStyle={theme.themeStyleClass}/>
             </GridItem>
             <Show when={shouldShowAside}>
-                <GridItem area="aside" padding="10px">
+                <GridItem area="aside" padding={8}>
                     <Menu/>
                 </GridItem>
             </Show>
 
-            <GridItem area="main">
+            <GridItem area="main" marginY={5}>
                 <GameGrid/>
             </GridItem>
         </Grid>
