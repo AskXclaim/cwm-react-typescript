@@ -11,9 +11,9 @@ type GameHubImageProps = {
 const GameHubImage =
     ({alternativeText, src, srcSet, size = "md"}: GameHubImageProps) => {
         return (
-            <Avatar.Root size={size} shape={"square"} borderRadius={8}>
+            <Avatar.Root size={size} shape={"square"} >
                 <Avatar.Fallback name={alternativeText}/>
-                <Avatar.Image src={getCroppedImageUrl(src)} srcSet={getCroppedImageUrl(srcSet)}/>
+                <Avatar.Image borderRadius="10px" objectFit="fill" src={getCroppedImageUrl(src)} srcSet={getCroppedImageUrl(srcSet)}/>
             </Avatar.Root>
         );
     }
